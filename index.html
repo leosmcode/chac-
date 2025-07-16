@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chácara Sonhos - O espaço ideal para o seu grande dia</title>
+    <meta name="description" content="Chácara para eventos em São Paulo. Casamentos, aniversários, formaturas e eventos corporativos. Estrutura completa com piscina, salão de festas e muito mais.">
+    <meta name="keywords" content="chácara, eventos, casamento, aniversário, formatura, São Paulo, festa">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <span class="logo-text">Chácara Sonhos</span>
+                </div>
+
+                <!-- Menu Desktop -->
+                <nav class="nav-desktop">
+                    <a href="#inicio" class="nav-link">Início</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#estrutura" class="nav-link">Estrutura</a>
+                    <a href="#galeria" class="nav-link">Galeria</a>
+                    <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                </nav>
+
+                <!-- Menu Mobile Toggle -->
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Menu Mobile -->
+            <nav class="nav-mobile" id="navMobile">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#estrutura" class="nav-link">Estrutura</a>
+                <a href="#galeria" class="nav-link">Galeria</a>
+                <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-slideshow">
+            <div class="slide active">
+                <img src="/placeholder.svg?height=600&width=1200" alt="Chácara para eventos">
+            </div>
+            <div class="slide">
+                <img src="/placeholder.svg?height=600&width=1200" alt="Salão de festas">
+            </div>
+            <div class="slide">
+                <img src="/placeholder.svg?height=600&width=1200" alt="Área externa">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Chácara Sonhos</h1>
+            <p class="hero-subtitle">
+                <span id="typewriter"></span>
+                <span class="cursor-blink">|</span>
+            </p>
+            <button class="btn btn-primary btn-large" onclick="scrollToSection('contato')">
+                Solicite um Orçamento
+            </button>
+        </div>
+        <div class="hero-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="section bg-white">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Sobre Nossa Chácara</h2>
+                <p class="section-description">
+                    Há mais de 10 anos realizando sonhos e criando memórias inesquecíveis. Nossa chácara oferece o ambiente
+                    perfeito para casamentos, aniversários, formaturas e eventos corporativos, cercada pela natureza e
+                    equipada com toda infraestrutura necessária para o seu evento especial.
+                </p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">Capacidade</h3>
+                        <p class="card-text">Até 200 pessoas confortavelmente</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="card-title">Estacionamento</h3>
+                        <p class="card-text">50 vagas cobertas e descobertas</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="card-title">Experiência</h3>
+                        <p class="card-text">Mais de 500 eventos realizados</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Eventos Realizados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">Capacidade Máxima</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estrutura Section -->
+    <section id="estrutura" class="section bg-light">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">Nossa Estrutura</h2>
+
+                <div class="structure-grid">
+                    <div class="structure-card">
+                        <div class="structure-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="structure-title">Salão de Festas</h3>
+                        <p class="structure-text">
+                            Salão climatizado com capacidade para 200 pessoas, pista de dança, sistema de som e iluminação
+                            profissional.
+                        </p>
+                    </div>
+
+                    <div class="structure-card">
+                        <div class="structure-icon">
+                            <i class="fas fa-swimming-pool"></i>
+                        </div>
+                        <h3 class="structure-title">Piscina</h3>
+                        <p class="structure-text">
+                            Piscina adulto e infantil com deck de madeira, perfeita para eventos diurnos e confraternizações.
+                        </p>
+                    </div>
+
+                    <div class="structure-card">
+                        <div class="structure-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3 class="structure-title">Churrasqueira</h3>
+                        <p class="structure-text">
+                            Área gourmet completa com churrasqueira, pia, geladeira e todos os utensílios necessários.
+                        </p>
+                    </div>
+
+                    <div class="structure-card">
+                        <div class="structure-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3 class="structure-title">Suíte dos Noivos</h3>
+                        <p class="structure-text">
+                            Suíte privativa com banheiro, ar-condicionado e espaço para preparação dos noivos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Section -->
+    <section id="galeria" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title">Galeria de Fotos</h2>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('/placeholder.svg?height=400&width=600')">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Galeria 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('/placeholder.svg?height=400&width=600')">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Galeria 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('/placeholder.svg?height=400&width=600')">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Galeria 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('/placeholder.svg?height=400&width=600')">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Galeria 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('/placeholder.svg?height=400&width=600')">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Galeria 5">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('/placeholder.svg?height=400&width=600')">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Galeria 6">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="section bg-green-light">
+        <div class="container">
+            <h2 class="section-title">Depoimentos</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Local perfeito para nosso casamento! A estrutura é incrível e o atendimento foi excepcional.
+                        Recomendo muito!"
+                    </p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Maria e João</p>
+                        <p class="author-event">Casamento - Dezembro 2023</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Realizamos a formatura da nossa turma aqui e foi um sucesso! Espaço lindo e bem cuidado."
+                    </p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Turma Medicina 2023</p>
+                        <p class="author-event">Formatura - Novembro 2023</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Aniversário de 50 anos inesquecível! Os convidados elogiaram muito o local e a organização."
+                    </p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Ana Paula</p>
+                        <p class="author-event">Aniversário - Janeiro 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+
+            <div class="contact-grid">
+                <!-- Formulário -->
+                <div class="contact-form-container">
+                    <div class="form-card">
+                        <h3 class="form-title">Solicite seu Orçamento</h3>
+
+                        <div id="successMessage" class="success-message" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            Mensagem enviada com sucesso!
+                        </div>
+
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" id="data" name="data" placeholder="Data pretendida">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre seu evento..." rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3 class="info-title">Informações de Contato</h3>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <p class="info-main">(11) 99999-9999</p>
+                                <p class="info-sub">WhatsApp disponível</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <p class="info-main">contato@chacarasonhos.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <p class="info-main">Rua das Flores, 123</p>
+                                <p class="info-sub">Cidade - SP, 12345-678</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <p class="info-main">Seg - Sex: 9h às 18h</p>
+                                <p class="info-sub">Sáb: 9h às 14h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mapa -->
+                    <div class="map-card">
+                        <h3 class="map-title">Localização</h3>
+                        <div class="map-placeholder">
+                            <p>Mapa interativo aqui</p>
+                        </div>
+                        <button class="btn btn-outline btn-full">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Abrir no Google Maps
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <span class="logo-text">Chácara Sonhos</span>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Chácara Sonhos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="/placeholder.svg" alt="Galeria ampliada">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="loading-text">Chácara Sonhos</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
