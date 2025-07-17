@@ -14,12 +14,6 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <span class="logo-text">Chácara Air Jordan</span>
-                </div>
 
                 <!-- Menu Desktop -->
                 <nav class="nav-desktop">
@@ -27,7 +21,7 @@
                     <a href="#sobre" class="nav-link">Sobre</a>
                     <a href="#estrutura" class="nav-link">Estrutura</a>
                     <a href="#galeria" class="nav-link">Galeria</a>
-                    <a href="#depoimentos" class="nav-link">Info. Importante</a>
+                    <a href="#depoimentos" class="nav-link">Info. Importantes</a>
                     <a href="#contato" class="nav-link">Contato</a>
                 </nav>
 
@@ -43,7 +37,7 @@
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#estrutura" class="nav-link">Estrutura</a>
                 <a href="#galeria" class="nav-link">Galeria</a>
-                <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                <a href="#depoimentos" class="nav-link">Info. Importantes</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
         </div>
@@ -64,7 +58,7 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Chácara Air Jordan</h1>
+            <h1 class="hero-title">CHÁCARA AIR JORDAN</h1>
             <p class="hero-subtitle">
                 <span id="typewriter"></span>
                 <span class="cursor-blink">|</span>
@@ -153,6 +147,16 @@
 
                     <div class="structure-card">
                         <div class="structure-icon">
+                            <i class="fa-solid fa-toilet"></i>
+                        </div>
+                        <h3 class="structure-title">Banheiros</h3>
+                        <p class="structure-text">
+                            Contamos com 2 banheiros sociais.
+                        </p>
+                    </div>
+
+                    <div class="structure-card">
+                        <div class="structure-icon">
                             <i class="fas fa-fire"></i>
                         </div>
                         <h3 class="structure-title">Churrasqueira</h3>
@@ -193,7 +197,7 @@
         <div class="container">
             <h2 class="section-title">Galeria de Fotos</h2>
 
-            <div class="gallery-grid">
+            <div class="gallery-grid gallery-collapsed">
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                     <img src="img/aereo.jpg" alt="Galeria 1">
                     <div class="gallery-overlay">
@@ -267,42 +271,31 @@
                     </div>
                 </div>
             </div>
+            <button class="gallery-expand-btn" onclick="toggleGalleryExpand()">
+                <i class="fas fa-chevron-down"></i>
+            </button>
         </div>
     </section>
+
 
     <!-- Depoimentos Section -->
     <section id="depoimentos" class="section bg-green-light">
         <div class="container">
             <h2 class="section-title-impo">Informações Importantes</h2>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        Não fornecemos: roupas de cama, travesseiros, cobertores e toalhas de banho</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        Taxa única de limpeza: R$ 200,00;</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        Horário de silêncio a partir das 22h, conforme regras do condomínio</p>
-                </div>
-                 <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        Check-in e check-out combinados previamente com o proprietário</p>
-                </div>
-                 <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        Sinal para reserva obrigatório. Em caso de imprevistos, remarcamos uma nova data conforme disponibilidade</p>
-                </div>
-                 <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        Excedente de pessoas: será cobrada taxa adicional de R$ 300,00</p>
-                </div>
-            </div>
+            <div class="testimonials-grid info-list">
+  <ul class="info-col">
+    <li>Não fornecemos: roupas de cama, travesseiros, cobertores e toalhas de banho</li>
+    <li>Taxa única de limpeza: R$ 200,00;</li>
+    <li>Horário de silêncio a partir das 22h, conforme regras do condomínio</li>
+  </ul>
+  <ul class="info-col">
+    <li>Check-in e check-out combinados previamente com o proprietário</li>
+    <li>Sinal para reserva obrigatório.</li>
+     <li>Em caso de imprevistos, remarcamos uma nova data conforme disponibilidade</li>
+    <li>Excedente de pessoas: será cobrada taxa adicional de R$ 300,00</li>
+  </ul>
+</div>
         </div>
     </section>
 
@@ -327,7 +320,14 @@
                                 <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                                <select id="tipoEvento" name="tipoEvento" required>
+                                    <option value="" disabled selected>Tipo de evento</option>
+                                    <option value="Festa aniversário">Festa aniversário</option>
+                                    <option value="Casamento">Casamento</option>
+                                    <option value="Evento corporativo">Evento corporativo</option>
+                                    <option value="Dia com família">Dia com família</option>
+                                    <option value="Eventos">Eventos</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone" required>
@@ -366,8 +366,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="info-content">
-                                <p class="info-main">Rua das Flores, 123</p>
-                                <p class="info-sub">Cidade - SP, 12345-678</p>
+                                <p class="info-main"><a href="https://www.google.com/maps?q=-23.4581569,-45.6432492" target="_blank" style="color:inherit;text-decoration:underline;">Rua das Flores, 123</a></p>
+                                <p class="info-sub">Paraibuna - SP, 12260-000</p>
                             </div>
                         </div>
                     </div>
@@ -376,9 +376,18 @@
                     <div class="map-card">
                         <h3 class="map-title">Localização</h3>
                         <div class="map-placeholder">
-                            <p>Mapa interativo aqui</p>
+                            <iframe
+                                src="https://www.google.com/maps?q=-23.4581569,-45.6432492&z=15&output=embed"
+                                width="100%"
+                                height="200"
+                                style="border:0; border-radius: 0.5rem;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Mapa Chácara Air Jordan"
+                            ></iframe>
                         </div>
-                        <button class="btn btn-outline btn-full">
+                        <button class="btn btn-outline btn-full" onclick="window.open('https://www.google.com/maps?q=-23.4581569,-45.6432492','_blank')">
                             <i class="fas fa-map-marker-alt"></i>
                             Abrir no Google Maps
                         </button>
@@ -406,27 +415,28 @@
     </footer>
 
     <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/554784619452" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-arrow left" onclick="event.stopPropagation(); prevLightboxImage();"><i class="fas fa-chevron-left"></i></button>
         <div class="lightbox-content">
             <img id="lightboxImage" src="/placeholder.svg" alt="Galeria ampliada">
             <button class="lightbox-close" onclick="closeLightbox()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
+        <button class="lightbox-arrow right" onclick="event.stopPropagation(); nextLightboxImage();"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <!-- Loading Screen -->
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
             <div class="loading-logo">
-                <i class="fas fa-home"></i>
+                <img src="img/logo.png" alt="Logo Chácara Air Jordan" style="height:60px;width:auto;">
             </div>
-            <div class="loading-text">Chácara Air Jordan</div>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>

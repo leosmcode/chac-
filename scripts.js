@@ -6,13 +6,16 @@ let isLoading = true
 let mouseX = 0
 let mouseY = 0
 
+// Variáveis globais para lightbox da galeria
+let galleryImages = [];
+let currentGalleryIndex = 0;
+
 // Inicialização quando o DOM estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
   initializeLoadingScreen()
   initializeSlideshow()
   initializeMenu()
   initializeForm()
-  initializeScrollAnimations()
   initializeCustomCursor()
   initializeScrollProgress()
   initializeTypewriter()
@@ -22,6 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeParallax()
   initializeMagneticEffect()
   initializeRippleEffect()
+  // Inicializar galeria para lightbox
+  galleryImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
+  // Adicionar evento para abrir lightbox com índice correto
+  document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+    item.onclick = function() {
+      openLightboxGallery(idx);
+    };
+  });
 })
 
 // Loading Screen
@@ -34,7 +45,7 @@ function initializeLoadingScreen() {
       loadingScreen.style.display = "none"
       isLoading = false
       // Inicia animações após loading
-      startRevealAnimations()
+      // startRevealAnimations() // REMOVIDO
     }, 500)
   }, 3000)
 }
@@ -88,10 +99,10 @@ function initializeTypewriter() {
   const typewriter = document.getElementById("typewriter")
   const texts = [
     "O espaço ideal para o seu grande dia",
-    "Casamentos inesquecíveis",
+    "Eventos inesquecíveis",
     "Eventos corporativos de sucesso",
     "Aniversários especiais",
-    "Formaturas memoráveis",
+    "Festas memoráveis",
   ]
 
   let textIndex = 0
@@ -379,44 +390,24 @@ function initializeMenu() {
 
 // Enhanced Form
 function initializeForm() {
-  const form = document.getElementById("contactForm")
-  const inputs = form.querySelectorAll("input, textarea")
-
-  // Animação nos inputs
-  inputs.forEach((input) => {
-    input.addEventListener("focus", () => {
-      input.style.transform = "scale(1.02)"
-      input.style.boxShadow = "0 0 20px rgba(5, 150, 105, 0.2)"
-    })
-
-    input.addEventListener("blur", () => {
-      input.style.transform = "scale(1)"
-      input.style.boxShadow = "none"
-    })
-  })
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
-
-    const nome = document.getElementById("nome").value.trim()
-    const email = document.getElementById("email").value.trim()
-    const telefone = document.getElementById("telefone").value.trim()
-    const mensagem = document.getElementById("mensagem").value.trim()
-
-    if (!nome || !email || !telefone || !mensagem) {
-      showToast("Por favor, preencha todos os campos obrigatórios.", "error")
-      return
-    }
-
-    if (!isValidEmail(email)) {
-      showToast("Por favor, insira um e-mail válido.", "error")
-      return
-    }
-
-    // Simula envio
-    showToast("Mensagem enviada com sucesso! Entraremos em contato em breve.", "success")
-    form.reset()
-  })
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const tipoEvento = document.getElementById('tipoEvento').value;
+    const data = document.getElementById('data').value;
+    const mensagem = document.getElementById('mensagem').value;
+    let texto = `Olá! Gostaria de solicitar um orçamento.\n`;
+    texto += `*Nome:* ${nome}\n`;
+    texto += `*Telefone:* ${telefone}\n`;
+    texto += `*Tipo de evento:* ${tipoEvento}\n`;
+    if (data) texto += `*Data pretendida:* ${data}\n`;
+    texto += `*Mensagem:* ${mensagem}`;
+    const url = `https://wa.me/554784619452?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  });
 }
 
 // Navegação suave aprimorada
@@ -453,18 +444,21 @@ function scrollToSection(sectionId) {
 
 // Enhanced Lightbox
 function openLightbox(imageSrc) {
-  const lightbox = document.getElementById("lightbox")
-  const lightboxImage = document.getElementById("lightboxImage")
-
-  lightboxImage.src = imageSrc
-  lightbox.style.display = "flex"
-  document.body.style.overflow = "hidden"
-
-  // Animação de entrada
-  lightbox.style.opacity = "0"
-  setTimeout(() => {
-    lightbox.style.opacity = "1"
-  }, 10)
+  const idx = galleryImages.indexOf(imageSrc);
+  if (idx !== -1) {
+    openLightboxGallery(idx);
+  } else {
+    // fallback
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    lightboxImage.src = imageSrc;
+    lightbox.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    lightbox.style.opacity = "0";
+    setTimeout(() => {
+      lightbox.style.opacity = "1";
+    }, 10);
+  }
 }
 
 function closeLightbox() {
@@ -476,28 +470,29 @@ function closeLightbox() {
   }, 300)
 }
 
-// Enhanced Scroll Animations
-function initializeScrollAnimations() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  }
+function openLightboxGallery(index) {
+  currentGalleryIndex = index;
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  lightboxImage.src = galleryImages[currentGalleryIndex];
+  lightbox.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  lightbox.style.opacity = "0";
+  setTimeout(() => {
+    lightbox.style.opacity = "1";
+  }, 10);
+}
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-in-up")
+function prevLightboxImage() {
+  if (galleryImages.length === 0) return;
+  currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById("lightboxImage").src = galleryImages[currentGalleryIndex];
+}
 
-        // Adiciona delay escalonado para elementos em grid
-        const siblings = Array.from(entry.target.parentNode.children)
-        const index = siblings.indexOf(entry.target)
-        entry.target.style.animationDelay = `${index * 0.1}s`
-      }
-    })
-  }, observerOptions)
-
-  const elementsToAnimate = document.querySelectorAll(".card, .structure-card, .testimonial-card, .gallery-item")
-  elementsToAnimate.forEach((el) => observer.observe(el))
+function nextLightboxImage() {
+  if (galleryImages.length === 0) return;
+  currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+  document.getElementById("lightboxImage").src = galleryImages[currentGalleryIndex];
 }
 
 // Utility Functions
@@ -555,3 +550,16 @@ window.addEventListener("scroll", () => {
     ticking = true
   }
 })
+
+function toggleGalleryExpand() {
+  const gallery = document.querySelector('.gallery-grid');
+  const btn = document.querySelector('.gallery-expand-btn');
+  if (gallery.classList.contains('gallery-collapsed')) {
+    gallery.classList.remove('gallery-collapsed');
+    btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+  } else {
+    gallery.classList.add('gallery-collapsed');
+    btn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+    gallery.scrollIntoView({behavior: 'smooth'});
+  }
+}
