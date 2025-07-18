@@ -342,6 +342,13 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 1.2rem 1.5rem;
   margin-top: 1.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4,0.2,0.2,1), transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+.location-rules.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
 }
 .location-rules h4 {
   margin-bottom: 0.7rem;
@@ -1291,6 +1298,19 @@ html, body {
   width: auto !important;
   max-width: 260px;
   display: block;
+}
+
+@media (max-width: 600px) {
+  .apartment-content {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .apartment-features {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 

@@ -141,6 +141,20 @@ function initializeScrollEffects() {
   });
 }
 
+// Efeito de animação suave para o bloco de regras importantes
+const rulesBlock = document.querySelector('.location-rules');
+if (rulesBlock) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        rulesBlock.classList.add('animate-fade-in-up');
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(rulesBlock);
+}
+
 // Navegação suave
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId)
