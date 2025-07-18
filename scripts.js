@@ -300,6 +300,22 @@ const galleryCategorias = document.getElementById('galleryCategorias');
 const galleryResumo = document.getElementById('galleryResumo');
 if (expandGalleryBtn && galleryCategorias && galleryResumo) {
   expandGalleryBtn.addEventListener('click', function() {
+    if (window.innerWidth <= 900) {
+      // Mobile: abrir ou fechar lightbox
+      if (expandGalleryBtn.innerHTML.includes('Ver menos fotos')) {
+        closeLightbox();
+        expandGalleryBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Ver galeria completa por cômodos';
+      } else {
+        const expandedImgs = Array.from(document.querySelectorAll('.gallery-categorias .gallery-item img'));
+        if (expandedImgs.length > 0) {
+          galleryImages = expandedImgs.map(img => img.src);
+          openLightboxGallery(0);
+          expandGalleryBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Ver menos fotos';
+        }
+      }
+      return;
+    }
+    // Desktop: expandir/recolher normalmente
     if (galleryCategorias.style.display === 'none' || galleryCategorias.style.display === '') {
       galleryCategorias.style.display = 'block';
       galleryResumo.style.display = 'none';
