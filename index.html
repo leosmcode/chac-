@@ -19,7 +19,7 @@
             <div class="header-content">
                 <nav class="nav-desktop">
                     <a href="#inicio" class="nav-link">Início</a>
-                    <a href="#apartamento" class="nav-link">O Apartamento</a>
+                    <a href="#apartamento" class="nav-link">A Casa</a>
                     <a href="#localizacao" class="nav-link">Localização</a>
                     <a href="#contato" class="nav-link">Contato</a>
                 </nav>
@@ -31,7 +31,7 @@
 
             <nav class="nav-mobile" id="navMobile">
                 <a href="#inicio" class="nav-link">Início</a>
-                <a href="#apartamento" class="nav-link">O Apartamento</a>
+                <a href="#apartamento" class="nav-link">A Casa</a>
                 <a href="#localizacao" class="nav-link">Localização</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
@@ -59,7 +59,7 @@
                 <div class="apartment-content">
                     <div class="apartment-badge">
                         <span class="wave-decoration">~~~</span>
-                        <span class="badge-text">O Apartamento</span>
+                        <span class="badge-text">Sobre a Casa</span>
                         <span class="wave-decoration">~~~</span>
                     </div>
                     <div class="apartment-divider"></div>
@@ -183,6 +183,10 @@
                                 src="aereo.jpg" alt="Logo">
                             <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                         </div>
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img
+                                src="piscinaperto.png" alt="Logo">
+                            <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
                     </div>
                 </div>
 
@@ -284,23 +288,47 @@
                 <div class="contact-form-container">
                     <div class="form-card">
                         <h3 class="form-title">Faça um orçamento</h3>
-                        <div id="successMessage" class="success-message" style="display: none;"><i
-                                class="fas fa-check-circle"></i> Mensagem enviada com sucesso!</div>
+
+                        <div id="successMessage" class="success-message" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso!
+                        </div>
+
                         <form id="contactForm" class="contact-form">
-                            <div class="form-group"><input type="text" id="nome" name="nome" placeholder="Seu nome"
-                                    required></div>
-                            <div class="form-group"><input type="tel" id="telefone" name="telefone"
-                                    placeholder="Seu telefone" required></div>
-                            <div class="form-group"><input type="tel" id="evento" name="evento"
-                                    placeholder="Tipo de Evento" required></div>
-                            <div class="form-group"><input type="date" id="dataDesejada" name="dataDesejada"
-                                    placeholder="Data Desejada"></div>
-                            <div class="form-group"><input type="number" id="hospedes" name="hospedes"
-                                    placeholder="Número de hóspedes" min="1" max="100"></div>
-                            <div class="form-group"><textarea id="mensagem" name="mensagem"
-                                    placeholder="Mensagem adicional..." rows="4"></textarea></div>
-                            <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-paper-plane"></i>
-                                Enviar Solicitação</button>
+
+                            <div class="form-group">
+                                <label for="nome">Seu nome</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="evento">Tipo de Evento</label>
+                                <input type="text" id="evento" name="evento" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dataDesejada">Data</label>
+                                <input type="date" id="dataDesejada" name="dataDesejada">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hospedes">Número de hóspedes</label>
+                                <input type="number" id="hospedes" name="hospedes" min="1" max="100">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensagem">Mensagem adicional</label>
+                                <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                            </button>
+
                         </form>
                     </div>
                 </div>
@@ -311,7 +339,7 @@
                         <div class="info-item">
                             <div class="info-icon"><i class="fas fa-phone"></i></div>
                             <div class="info-content">
-                                <p class="info-main">(47) 8461-9452</p>
+                                <p class="info-main">(47) 98461-9452</p>
                                 <p class="info-sub">WhatsApp disponível</p>
                             </div>
                         </div>
@@ -334,13 +362,13 @@
                 <div class="footer-logo"><img src="log.png" alt="Logo" style="height: 48px; width: auto;"></div>
                 <nav class="footer-nav">
                     <a href="#inicio" class="nav-link">Início</a>
-                    <a href="#apartamento" class="nav-link">O Apartamento</a>
+                    <a href="#apartamento" class="nav-link">A Casa</a>
                     <a href="#localizacao" class="nav-link">Localização</a>
                     <a href="#contato" class="nav-link">Contato</a>
                 </nav>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Chácara Air Jordan. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Refúgio Brisa e Sol. Todos os direitos reservados.</p>
                 <p class="footer-dev">Criado e Desenvolvido por <a href="https://instagram.com/leosmrosa"
                         target="_blank" rel="noopener" class="footer-dev-link">leosmrosa</a></p>
             </div>
