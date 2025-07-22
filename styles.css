@@ -137,12 +137,27 @@ body {
 }
 
 .wave-decoration {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 300;
+}
+
+.wave-decoration-1 {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
 }
 
 .badge-text {
-  color: white;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.badge-text-1 {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.badge-text-2 {
+  color: rgb(0, 0, 0);
   font-weight: 500;
 }
 
@@ -214,7 +229,7 @@ body {
   font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #4a90a4;
+  color: #000000;
 }
 
 .apartment-divider {
@@ -246,7 +261,7 @@ body {
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: #fffb00;
   transition: all 0.3s ease;
 }
 
@@ -317,6 +332,15 @@ body {
   gap: 2.5rem;
   align-items: center;
 }
+
+/* Inverter ordem da localização - texto à direita, mapa à esquerda */
+.location-content {
+  order: 2;
+}
+
+.location-map {
+  order: 1;
+}
 .location-map {
   display: flex;
   align-items: center;
@@ -336,6 +360,15 @@ body {
     height: 220px;
   }
 }
+
+@media (max-width: 768px) {
+  .location-content .btn {
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+  }
+}
+
 .location-rules {
   background: #fff;
   border-radius: 0.7rem;
@@ -353,7 +386,7 @@ body {
 .location-rules h4 {
   margin-bottom: 0.7rem;
   font-size: 1.1rem;
-  color: #000;
+  color: #ff0000;
   font-weight: 700;
 }
 .location-rules ul {
@@ -381,20 +414,24 @@ body {
 
 .location-content {
   padding: 2rem 0;
+  order: 2;
+  text-align: right;
 }
 
 .location-content-centered {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+.location-content.location-content-centered {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.location-content.location-content-centered .location-icon,
 .location-content.location-content-centered .btn {
-  align-self: center;
-}
-.location-content.location-content-centered .btn {
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 @media (min-width: 901px) {
   .location-content.location-content-centered {
@@ -404,7 +441,7 @@ body {
 }
 .location-icon {
   font-size: 3.5rem;
-  color: var(--cor-detalhe);
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
@@ -717,8 +754,8 @@ body {
 
 /* Footer */
 .footer {
-  background: #333;
-  color: white;
+  background: #fcfcfc;
+  color: rgb(0, 0, 0);
   padding: 2.5rem 0 1.5rem 0;
   text-align: center;
 }
@@ -1097,7 +1134,7 @@ body {
 :root {
   --cor-titulo: #000000;
   --cor-texto: #000000;
-  --cor-detalhe: #F0E68C;
+  --cor-detalhe: #ADD8E6;
   --cor-fundo-div: #ADD8E6;
 }
 
@@ -1108,7 +1145,7 @@ body {
 .social-link i,
 .menu-toggle i,
 .btn i {
-  color: var(--cor-detalhe) !important;
+  color: #ffffff !important;
 }
 
 /* Fundos das divs principais */
@@ -1251,14 +1288,14 @@ html, body {
   margin-bottom: 0.5rem;
 }
 .footer-nav .nav-link {
-  color: #ffffff;
+  color: #000000;
   font-weight: 500;
   font-size: 1.05rem;
   text-decoration: none;
   transition: color 0.2s;
 }
 .footer-nav .nav-link:hover {
-  color: var(--cor-detalhe);
+  color: #000000;
 }
 .footer-bottom {
   text-align: center;
@@ -1271,10 +1308,10 @@ html, body {
 .footer-dev {
   margin-top: 0.2rem;
   font-size: 0.97rem;
-  color: #ffffff;
+  color: #000000;
 }
 .footer-dev-link {
-  color: var(--cor-detalhe);
+  color: #1100ff;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
@@ -1294,10 +1331,11 @@ html, body {
 }
 
 .footer-logo img {
-  height: 180px !important;
+  height: 220px !important;
   width: auto !important;
-  max-width: 260px;
+  max-width: 300px;
   display: block;
+  margin: 0 auto;
 }
 
 @media (max-width: 600px) {
@@ -1417,3 +1455,148 @@ html, body {
 }
 
 
+
+
+/* Airbnb Section */
+.airbnb-section {
+  padding: 6rem 0;
+  background: #fffeca;
+  text-align: center;
+}
+
+.airbnb-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.airbnb-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.airbnb-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF5A5F, #E00007);
+  margin: 0 auto 2rem auto;
+  border-radius: 2px;
+}
+
+.airbnb-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.airbnb-description {
+  font-size: 1.1rem;
+  color: #000000;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.airbnb-btn {
+  background: linear-gradient(135deg, #FF5A5F, #E00007);
+  color: rgb(0, 0, 0);
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 90, 95, 0.2);
+}
+
+.airbnb-btn:hover {
+  background: linear-gradient(135deg, #E00007, #C5050C);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 90, 95, 0.4);
+  color: white;
+}
+
+.airbnb-btn i {
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .airbnb-section {
+    padding: 4rem 0;
+  }
+  .airbnb-title {
+    font-size: 2rem;
+  }
+  .airbnb-description {
+    font-size: 1rem;
+  }
+  .airbnb-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* Símbolos das seções O Apartamento e Reserve Agora em preto */
+.apartment-badge .wave-decoration,
+.airbnb-badge .wave-decoration {
+  color: #000000 !important;
+}
+
+@media (max-width: 768px) {
+  .location-content .btn {
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+
+  .contact-grid {
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .form-card,
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .form-title,
+  .info-title {
+    font-size: 1.1rem;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-full {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
