@@ -106,6 +106,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-attachment: fixed;
 }
 
 .hero-overlay {
@@ -306,6 +307,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+
 }
 
 .apartment-small-images {
@@ -318,6 +321,8 @@ body {
   width: 100%;
   height: calc(50% - 0.5rem);
   object-fit: cover;
+
+
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -325,7 +330,7 @@ body {
 /* Location Section */
 .location-section {
   padding: 6rem 0;
-  background: var(--cor-fundo-div);
+  background: #f5f0e6;
   color: white;
 }
 
@@ -413,6 +418,8 @@ body {
   width: 100%;
   height: 400px;
   object-fit: cover;
+
+
 }
 
 .location-content {
@@ -462,7 +469,7 @@ body {
 .location-divider {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #87ceeb, #ffffff);
+  background: #edf0f8;
   margin-bottom: 2rem;
   border-radius: 2px;
 }
@@ -491,7 +498,7 @@ body {
   padding: 2.5rem 2rem;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -564,6 +571,8 @@ body {
   width: 100%;
   height: 250px;
   object-fit: cover;
+
+
 }
 
 .gallery-overlay {
@@ -589,7 +598,7 @@ body {
 /* Contact Section */
 .contact-section {
   padding: 6rem 0;
-  background: var(--cor-fundo-div);
+  background: #ffffff;
 }
 
 .contact-title {
@@ -617,7 +626,7 @@ body {
   background: white;
   padding: 2.5rem;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .form-title,
@@ -757,7 +766,7 @@ body {
 
 /* Footer */
 .footer {
-  background: #f5f0e6;
+  background: #ffffff;
   color: rgb(0, 0, 0);
   padding: 1.5rem 0;
   text-align: center;
@@ -1187,14 +1196,14 @@ body {
   background: #fff;
 }
 .location-section {
-  background: var(--cor-fundo-div);
+  background: #f5f0e6;
   margin-top: 4rem;
 }
 .gallery-section {
   background: #fff;
 }
 .contact-section {
-  background: var(--cor-fundo-div);
+  background: #f5f0e6;
 }
 
 /* Títulos e textos principais */

@@ -108,14 +108,7 @@ function initializeScrollEffects() {
     }
   })
 
-  // Parallax effect for hero
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroBackground = document.querySelector('.hero-background img');
-    if (heroBackground) {
-      heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-  });
+
 
   // Reveal animations
   const observerOptions = {
